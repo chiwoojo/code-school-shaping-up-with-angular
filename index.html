@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="store">
+<!-- attaching Application module to the page -->
+<head>
+
+    <meta charset="UTF-8">
+    <title>Shaping up with Angular</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="bootstrap-3.3.5/dist/css/bootstrap.min.css">
+    <!-- Angular JS -->
+    <script type="text/javascript" src="angular.js"></script>
+    <!-- MAIN Javascript file -->
+    <script language="javascript" type="text/javascript" src="main.js"></script>
+
+</head>
+<body>
+    
+    <div ng-controller="StoreController as store">
+    <!-- ng-controller is called a "Directive" (HTML annotations that trigger Javascript behaviors), "StoreController" is a controller name, 'as' is a keyword, and 'store' is an alias that we will use inside this <div>. -->
+        <div ng-repeat="product in store.products">
+        <!-- repeat for each item in the array -->
+            <h1> {{product.name}} </h1>
+            <h2> ${{product.price}} </h2>
+            <p> {{product.description}} </p>
+            <!-- as you can see, the store is basically set as a new object now -->
+            <button ng-show="product.canPurchase"> Add to Cart </button>
+            <!-- ng-show takes an argument of true or false and decides to whether to show the element or not -->
+        </div>
+    </div>
+
+    
+
+</body>
+</html>
