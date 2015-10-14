@@ -14,21 +14,20 @@
     <script language="javascript" type="text/javascript" src="main.js"></script>
 
 </head>
-<body>
-    
-    <div ng-controller="StoreController as store">
-    <!-- ng-controller is called a "Directive" (HTML annotations that trigger Javascript behaviors), "StoreController" is a controller name, 'as' is a keyword, and 'store' is an alias that we will use inside this <div>. -->
-        <div ng-repeat="product in store.products">
-        <!-- repeat for each item in the array -->
-            <h1> {{product.name}} </h1>
-            <h2> ${{product.price}} </h2>
-            <p> {{product.description}} </p>
-            <!-- as you can see, the store is basically set as a new object now -->
-            <button ng-show="product.canPurchase"> Add to Cart </button>
-            <!-- ng-show takes an argument of true or false and decides to whether to show the element or not -->
-        </div>
-    </div>
-
+<body ng-controller="StoreController as store">
+<!-- ng-controller is called a "Directive" (HTML annotations that trigger Javascript behaviors), "StoreController" is a controller name, 'as' is a keyword, and 'store' is an alias that we will use inside this <div>. -->
+        
+        <ul class="list-group">
+            <li class="list-group-item" ng-repeat="product in store.products">
+            <!-- repeat for each item in the array -->
+                <h3>
+                    {{product.name}}
+                    <em class="pull-right">{{product.price | currency}}</em>
+                    <!-- the | is a filter. It allows you to sort, cut, and convert to date, etc. -->
+                    <img style="height: 100px" ng-src="{{product.images[0].full_alt}}" alt="">
+                </h3>
+            </li>
+        </ul>
     
 
 </body>

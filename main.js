@@ -16,13 +16,31 @@
         {
             name: 'Dodecahedron',
             price: 2.95,
-            description: '. . .',
+            images: [ 
+                {
+                    full: 'img/pentegonal.png',
+                    full_alt: 'img/pentegonal2.jpg'
+                },
+                {
+                    
+                }
+            ],
+            description: ' . . . ',
             canPurchase: true,
             soldOut: false
         }, 
         {
             name: "Pentagonal Gem",
             price: 5.95,
+            images: [ 
+                {
+                    full: 'img/bluegem.jpg',
+                    full_alt: 'img/bluegem2.jpg'
+                },
+                {
+                    
+                }
+            ],
             description: " . . . ",
             canPurchase: true
         }
