@@ -12,6 +12,21 @@
             //"product is now a property of the controller"
         });
 
+        app.controller('PanelController', function() {
+            //variable initialization
+            this.tab = 1;
+
+            //sets the tab # whenever a user clicks on the 'a' ref inside of the panel
+            this.selectTab = function(setTab) {
+                this.tab = setTab;
+            }
+
+            //
+            this.isSelected = function(checkTab) {
+                return this.tab === checkTab;
+            }
+        });
+
         var gems = [ 
         {
             name: 'Dodecahedron',
@@ -25,7 +40,7 @@
                     
                 }
             ],
-            description: ' . . . ',
+            description: ' This is a badass mothertrucking stone ',
             canPurchase: true,
             soldOut: false
         }, 

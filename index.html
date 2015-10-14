@@ -26,8 +26,49 @@
                     <!-- the | is a filter. It allows you to sort, cut, and convert to date, etc. -->
                     <img style="height: 100px" ng-src="{{product.images[0].full_alt}}" alt="">
                 </h3>
+                
+                <!-- Descrip, Spec, Review section -->
+                <section ng-controller="PanelController as panel">
+
+                    <ul class="nav nav-pills">
+
+                        <li ng-class="{ active:panel.isSelected(1) }">
+                        <!-- ng-class directive basically sets the class for 'li', in this case. The first is the class, and the second is the expression to evaluate. So if 'tab' is equal to 1, this 'li' tag has now a class of 'active' -->
+                            <a href="" ng-click="panel.selectTab(1)">Description</a>
+                        </li>
+                        <!-- First, you declare a variable within an 'a' tag -->
+                        <!-- Now we changed it to panel.selectTab(1) to invoke a function inside of the PanelController -->
+                        <li ng-class="{ active:panel.isSelected(2) }">
+                            <a href="" ng-click="panel.selectTab(2)">Specifications</a>
+                        </li>
+
+                        <li ng-class="{ active:panel.isSelected(3) }">
+                            <a href="" ng-click="panel.selectTab(3)">Reviews</a>
+                        </li>
+
+                    </ul>
+
+                    <div class="panel" ng-show="panel.isSelected(1)">
+                    <!-- then you make a ng-show, true or false expression -->
+                        <h4>Description</h4>
+                        <blockquote>{{product.description}}</blockquote>
+                    </div>
+                    <div class="panel" ng-show="panel.isSelected(2)">
+                        <h4>Specifications</h4>
+                        <blockquote>None yet</blockquote>
+                    </div>
+                    <div class="panel" ng-show="panel.isSelected(3)">
+                        <h4>Reviews</h4>
+                        <blockquote>None yet</blockquote>
+                    </div>
+
+                </section>
+
+
             </li>
         </ul>
+
+        
     
 
 </body>
